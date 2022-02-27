@@ -16,7 +16,15 @@ class ContactBook{
             favorite: req.body.favorite === true,
         })
 
-        const [error, document] = await handlePromise(Contact.save())
+        // const contact = new Contact({
+        //     name: "Phuoc Thang",
+        //     email: "Thang@gmail.com",
+        //     address: "Nui Sap",
+        //     phone: "0123654987",
+        //     favorite: req.body.favorite === true,
+        // })
+
+        const [error, document] = await handlePromise(contact.save())
         if(error){
             return next(new BadRequestError(500,
                 "An error occurred while creating the contact"))
@@ -58,6 +66,9 @@ class ContactBook{
         }
         return res.send(document)
     }
+
+
+
     async update(req,res,next){
         if(Object.keys(res.body).length === 0){
             return next(new BadRequestError(400,
