@@ -12,7 +12,6 @@ app.use(express.urlencoded({ extended: true}))
 app.get("/", (req,res)=>{
     res.json({message: "Wellcome to contact book"})
 })
-
 setupContactRoutes(app)
 
 app.use((req,res,next) => {

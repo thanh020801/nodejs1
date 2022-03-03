@@ -70,10 +70,11 @@ class ContactBook{
 
 
     async update(req,res,next){
-        if(Object.keys(res.body).length === 0){
-            return next(new BadRequestError(400,
-                "Data to update can to be empty"))
-        }
+        // if(Object.keys(res.body).length === 0){
+        //     console.log(res.body)
+        //     return next(new BadRequestError(400,
+        //         "Data to update can to be empty"))
+        // }
         const { id } = req.params
         const condition = {
             _id: id && mongoose.isValidObjectId(id) ? id : null,
